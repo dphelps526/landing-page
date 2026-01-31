@@ -1,26 +1,148 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Regrade Request</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body>
-    <h2>Regrade Request</h2>
+<head>
+  <meta charset="utf-8" />
+  <title>Grades</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <p><strong>Course:</strong> CS ####</p>
-    <p><strong>Assignment:</strong> Homework 2</p>
-    <p><strong>Status:</strong> Pending review</p>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: #f5f5f5;
+      color: #2d3b45;
+    }
 
-    <hr>
+    /* Top bar */
+    .topbar {
+      background: #2d3b45;
+      color: #fff;
+      padding: 12px 20px;
+      font-size: 16px;
+    }
 
-    <p>
-      A regrade request has been submitted.  
-      Please log in to the grading system to review details.
-    </p>
+    /* Layout */
+    .container {
+      max-width: 1100px;
+      margin: 24px auto;
+      background: #fff;
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    }
 
-    <p style="font-size:12px;color:#666;">
-      This page is used for an authorized demonstration.
-    </p>
-  </body>
+    h1 {
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    thead {
+      background: #f2f2f2;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      font-weight: 600;
+      color: #4a4a4a;
+    }
+
+    .assignment {
+      color: #0374b5;
+      text-decoration: none;
+    }
+
+    .assignment:hover {
+      text-decoration: underline;
+    }
+
+    .score {
+      color: #666;
+    }
+
+    .notice {
+      margin-top: 24px;
+      padding: 12px;
+      background: #fff8e5;
+      border: 1px solid #f0e1b2;
+      font-size: 13px;
+      color: #6b5e2e;
+    }
+
+    .footer {
+      margin-top: 24px;
+      font-size: 12px;
+      color: #888;
+    }
+
+    .disabled {
+      pointer-events: none;
+      color: #999;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    Grades
+  </div>
+
+  <div class="container">
+    <h1>Grades for David Wayne Phelps</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Due</th>
+          <th>Status</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <a class="assignment" href="#" onclick="return false;">
+              Assignment 1: GoPhish (group assignment)
+            </a>
+          </td>
+          <td>Feb 14 by 11:59pm</td>
+          <td>Submitted</td>
+          <td class="score">— / 100</td>
+        </tr>
+
+        <tr>
+          <td>
+            <span class="assignment disabled">
+              Quiz on Module 1
+            </span>
+          </td>
+          <td>Feb 14 by 11:59pm</td>
+          <td>Submitted</td>
+          <td class="score">— / 32</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="notice">
+      A regrade request has been submitted for <strong>Assignment 1: GoPhish</strong>.
+      Please review the submission and rubric in Canvas.
+    </div>
+
+    <div class="footer">
+      This page is part of an authorized academic demonstration.
+    </div>
+  </div>
+
+</body>
 </html>
