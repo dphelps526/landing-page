@@ -1,0 +1,75 @@
+////////////////////////////////////////////////////
+// DESIGNPLUS CONFIG                            //
+////////////////////////////////////////////////////
+// Legacy
+var DT_variables = {
+  iframeID: '',
+        // Path to the hosted USU Design Tools
+        path: 'https://designtools.ciditools.com/',
+        templateCourse: '245558',
+        // OPTIONAL: Button will be hidden from view until launched using shortcut keys
+        hideButton: true,
+    	 // OPTIONAL: Limit by course format
+	     limitByFormat: false, // Change to true to limit by format
+	     // adjust the formats as needed. Format must be set for the course and in this array for tools to load
+	     formatArray: [
+            'online',
+            'on-campus',
+            'blended'
+        ],
+        // OPTIONAL: Limit tools loading by users role
+        limitByRole: true, // set to true to limit to roles in the roleArray
+        // adjust roles as needed
+        roleArray: [
+            'admin',
+            'teacher'
+        ],
+        // OPTIONAL: Limit tools to an array of Canvas user IDs
+        limitByUser: false, // Change to true to limit by user
+        // add users to array (Canvas user ID not SIS user ID)
+        userArray: [
+            '1234',
+            '987654'
+        ]      // Paste variables from existing code here
+};
+
+// New
+DpPrimary = {
+    lms: 'canvas',
+    templateCourse: '383594',
+    hideButton: true,
+    hideLti: false,
+    extendedCourse: '', // added in sub-account theme
+    sharedCourse: '', // added from localStorage
+    courseFormats: [],
+    canvasRoles: ['admin', 'teacher'],
+    canvasUsers: [],
+    canvasCourseIds: [],
+    plugins: [],
+    excludedModules: [],
+    includedModules: [],
+    lang: 'en',
+    defaultToLegacy: true,
+    enableVersionSwitching: true,
+    hideSwitching: false,
+}
+
+// merge with extended/shared customizations config
+DpConfig = { ...DpPrimary, ...(window.DpConfig ?? {}) }
+
+$(function () {
+    const uriPrefix = (location.href.includes('.beta.')) ? 'beta.' : '';
+    const toolsUri = (DpConfig.toolsUri) ? DpConfig.toolsUri : `https://${uriPrefix}designplus.ciditools.com/`;
+    $.getScript(`${toolsUri}js/controller.js`);
+});
+////////////////////////////////////////////////////
+// END DESIGNPLUS CONFIG                        //
+////////////////////////////////////////////////////
+
+window.ALLY_CFG = {
+    'baseUrl': 'https://prod.ally.ac',
+    'clientId': 10766, 
+'lti13Id': '20960000000000201'
+};
+
+$.getScript(ALLY_CFG.baseUrl + '/integration/canvas/ally.js');
